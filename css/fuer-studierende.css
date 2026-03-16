@@ -3025,6 +3025,9 @@ ol.timeline-container-new {
     width: 100%;
     overflow-x: clip;
 }
+.timeline-track-wrapper {
+    position: relative;
+}
 .timeline-line-track-new {
     position: absolute;
     top: 0; bottom: 0;

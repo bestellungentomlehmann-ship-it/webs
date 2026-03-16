@@ -777,6 +777,10 @@ ol.timeline-container-new {
     overflow-x: clip;
 }
 
+.timeline-track-wrapper {
+    position: relative;
+}
+
 /* Ambient background & blobs */
 .timeline-ambient-bg {
     position: absolute;
