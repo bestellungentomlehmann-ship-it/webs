@@ -1075,7 +1075,7 @@ body.homepage .navbar.scrolled .nav-link {
 #mobile-sticky-cta {
     display: none; /* hidden by default; shown via JS after 15 s */
     position: fixed;
-    bottom: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     left: 20px;
     right: auto;
     z-index: 9999;
@@ -1445,7 +1445,7 @@ body.homepage .navbar.scrolled .nav-link {
 #nav-fab {
     display: none; /* shown via JS */
     position: fixed;
-    bottom: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     right: 16px;
     z-index: 10001; /* above navbar (10000) */
     width: 56px;

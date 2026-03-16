@@ -1,5 +1,5 @@
 /* ==========================================================================
- * mobile-animations.css  –  IBC Website / index.html
+ * mobile-animations.css  –  IBC Website (all pages)
  *
  * Mobile-optimised animation overrides.
  * All desktop rules in style.css / index.css are left untouched.
@@ -22,6 +22,11 @@
  * §11 Competency swipe carousel  – guarantee visibility for all carousel cards
  * §12 headingReveal keyframe  – remove blur from heading entrance on mobile
  * §13 stripe-reveal keyframe  – remove blur from stripe entrance on mobile
+ * §14 fade-in-up & section-heading  – 0.5 s transition, no stagger delay
+ * §15 Unsere Werte – physics cards mobile adaptations
+ * §16 Footer navigation links  – remove hover effects on mobile
+ * §17 Page-hero background blobs  – disable on mobile (all sub-pages)
+ * §18 Continuous gradient & glow animations  – disable on mobile
  * ========================================================================== */
 
 
@@ -527,5 +532,79 @@
         color: var(--fat-footer-link, #e2e8f0) !important;
         text-shadow: none !important;
         transform: none !important;
+    }
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   § 17  Page-hero background blobs – disable on mobile (all sub-pages)
+   Sub-pages (unser-netzwerk, fuer-studierende, ueber-uns, etc.) use pseudo-
+   element or dedicated .hero-deco-orb blobs with infinite float/orbit
+   animations.  On mobile GPUs these continuous animations keep compositor
+   threads awake and drain battery without adding meaningful visual value.
+   We disable all looping blob/orb animations in page hero sections at ≤768 px.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Pseudo-element blobs (unser-netzwerk, ueber-uns hero) */
+    .page-hero-section::before,
+    .page-hero-section::after {
+        animation: none !important;
+    }
+
+    /* Dedicated orb elements (fuer-studierende, fuer-unternehmen) */
+    .page-hero-section .hero-deco-orb,
+    .hero-deco-orb {
+        animation: none !important;
+        /* Reduce blur radius for cheaper compositing even in static state */
+        filter: blur(30px) !important;
+    }
+
+    /* Section-level floating blobs (unser-netzwerk partner/alumni sections) */
+    .partner-section::before,
+    .partner-section::after,
+    .alumni-section::before,
+    .alumni-section::after {
+        animation: none !important;
+    }
+
+    /* Timeline decorative float (fuer-studierende) */
+    .timeline-section::before,
+    .timeline-section::after {
+        animation: none !important;
+    }
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   § 18  Continuous gradient & glow animations – disable on mobile
+   Several sub-pages run infinite gradient-shift, glow-pulse, and gradient-
+   move animations on section backgrounds and icon boxes.  These keep
+   browser paint threads busy, consuming extra CPU/GPU on mobile devices.
+   They are disabled on ≤768 px and replaced with static background-color.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Gradient animations on section backgrounds */
+    .values-section,
+    .values-section::before,
+    .partner-section,
+    .timeline-section {
+        animation: none !important;
+    }
+
+    /* Glow pulse on value-card icons (ueber-uns) */
+    .value-card-icon {
+        animation: none !important;
+    }
+
+    /* Icon float animations (ueber-uns member cards) */
+    .team-card-icon,
+    .member-card-icon {
+        animation: none !important;
+    }
+
+    /* Gradient move animation on progress bars / decorative elements */
+    .gradient-move,
+    [class*="gradient-move"] {
+        animation: none !important;
     }
 }
