@@ -727,9 +727,9 @@
     "fr": "En savoir plus"
   },
   "about-mission-heading": {
-    "de": "Unsere Mission",
-    "en": "Our Mission",
-    "fr": "Notre mission"
+    "de": "Unsere Identität & unsere Mission",
+    "en": "Our Identity & Our Mission",
+    "fr": "Notre identité & notre mission"
   },
   "about-values-heading": {
     "de": "Unsere Werte",
@@ -1436,10 +1436,15 @@
     "en": "We offer <strong>individual, cost-effective problem solutions</strong> based on current scientific knowledge.",
     "fr": "Nous proposons des <strong>solutions individuelles et rentables</strong> aux défis des entreprises, basées sur les connaissances scientifiques actuelles."
   },
+  "about-vision-label": {
+    "de": "Unsere Vision",
+    "en": "Our Vision",
+    "fr": "Notre vision"
+  },
   "about-mission-vision": {
-    "de": "Unsere Vision: Wir sind als stärkster Karriereförderer an der Hochschule Furtwangen etabliert und werden als solcher wahrgenommen.",
-    "en": "Our Vision: We are established and recognized as the strongest career promoter at Furtwangen University.",
-    "fr": "Notre vision : Nous sommes établis et reconnus comme le principal promoteur de carrière à l'Université de Furtwangen."
+    "de": "Wir sind als stärkster Karriereförderer an der Hochschule Furtwangen etabliert und werden als solcher wahrgenommen.",
+    "en": "We are established and recognized as the strongest career promoter at Furtwangen University.",
+    "fr": "Nous sommes établis et reconnus comme le principal promoteur de carrière à l'Université de Furtwangen."
   },
   "about-ressorts-heading": {
     "de": "Unsere Ressortleitungen",
