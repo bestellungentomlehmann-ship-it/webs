@@ -34,6 +34,8 @@
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    padding-top: var(--kontakt-hero-pad-top);
+    padding-bottom: var(--kontakt-hero-pad-bottom);
 }
 
 /* Decorative floating circles behind hero content */
@@ -69,6 +71,14 @@
 .page-hero-section .container {
     position: relative;
     z-index: 1;
+}
+
+/* The hero container uses js-reveal for reveal timing, but the
+   children (h1, p) already have their own translateY animations.
+   Override the container to fade-only (no translate) to avoid
+   a compound-transform double-bounce effect. */
+.page-hero-section .js-reveal {
+    transform: none;
 }
 
 @keyframes heroBlob1 {
@@ -869,31 +879,36 @@ section:has(#contact-form) > .container {
 
 /* ─────────────────────────────────────────────────────────────
    §20  js-reveal / fade-in-up  —  ensure they work correctly
+   The hero container gets "is-in-view" (from initIbcHeadings),
+   while column elements with both "fade-in-up js-reveal" get
+   "is-visible" (from fade-in observers).  Both classes must
+   trigger the visible state to avoid permanent opacity:0.
    ───────────────────────────────────────────────────────────── */
-.js-reveal:not(.is-visible) {
+.js-reveal:not(.is-visible):not(.is-in-view) {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
                 transform 0.7s cubic-bezier(0.22,1,0.36,1);
 }
 
-.js-reveal.is-visible {
+.js-reveal.is-visible,
+.js-reveal.is-in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Staggered delay for child elements */
-.js-reveal:not(.is-visible)[data-animation-delay="200ms"] {
+.js-reveal:not(.is-visible):not(.is-in-view)[data-animation-delay="200ms"] {
     transition-delay: 0.2s;
 }
 
-.js-reveal:not(.is-visible)[data-animation-delay="400ms"] {
+.js-reveal:not(.is-visible):not(.is-in-view)[data-animation-delay="400ms"] {
     transition-delay: 0.4s;
 }
 
 /* On mobile: no stagger (elements should appear promptly) */
 @media (max-width: 768px) {
-    .js-reveal:not(.is-visible)[data-animation-delay] {
+    .js-reveal:not(.is-visible):not(.is-in-view)[data-animation-delay] {
         transition-delay: 0s !important;
     }
 }
