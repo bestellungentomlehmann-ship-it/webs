@@ -119,6 +119,10 @@
                 '           alt="' + safeAlt + '" class="kuratorium-card-img">' +
                 '    </div>' +
                 '    <div class="kuratorium-card-body">' +
+                '      <span class="kuratorium-card-role">' +
+                '        <i class="fas fa-graduation-cap" aria-hidden="true"></i>' +
+                '        <span data-i18n="network-curators-role-label">Kuratorium</span>' +
+                '      </span>' +
                 '      <h3 data-i18n="' + escapeHtml(member.nameI18nKey) + '"></h3>' +
                 '      <blockquote class="blockquote"' +
                 '          data-i18n="' + escapeHtml(member.quoteI18nKey) + '"></blockquote>' +
