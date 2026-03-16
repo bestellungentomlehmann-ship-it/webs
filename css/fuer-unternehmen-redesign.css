@@ -427,7 +427,6 @@ html {
     line-height: 1.35 !important;
     letter-spacing: -0.01em !important;
     transition: color 0.3s ease !important;
-    word-break: break-word !important;
     overflow-wrap: break-word !important;
     hyphens: auto !important;
     width: 100% !important;
@@ -758,7 +757,7 @@ html {
 }
 .fade-in-up:not(.is-visible) {
     animation: fadeUpReveal 0.65s cubic-bezier(0.16,1,0.3,1) both;
-    animation-delay: 1.5s; /* fallback: show after 1.5s even without scroll */
+    animation-delay: 0.8s; /* fallback: show after 0.8s even without scroll */
 }
 
 /* ============================================================
@@ -821,4 +820,195 @@ html {
 #digitalisierung .col-md-6 {
     padding-left: calc(var(--bs-gutter-x) * 0.5);
     padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+
+/* ============================================================
+   §9  HERO — STATS ROW (social proof numbers below CTAs)
+   ============================================================ */
+
+/* Stats row injected via this CSS — appended to hero container via JS,
+   but we style the hero-stats class in advance */
+.hero-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.hero-stat-item__number {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(90deg, #a8e063, #78d4a0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-stat-item__label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+/* Divider between stats */
+.hero-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.18);
+    align-self: center;
+}
+
+@media (max-width: 575px) {
+    .hero-stats-row {
+        gap: 1.25rem;
+    }
+    .hero-stat-divider {
+        display: none;
+    }
+}
+
+/* ============================================================
+   §10  SECTION TRANSITION BARS
+   ============================================================ */
+
+/* Subtle green accent top-border for green-background sections */
+#schulungen,
+#digitalisierung {
+    border-top: none !important;
+    position: relative;
+}
+
+#schulungen::before,
+#digitalisierung::before {
+    content: none !important;
+}
+
+/* Wave divider between hero and overview */
+#uebersicht::before {
+    content: none;
+}
+
+/* ============================================================
+   §11  CARD EQUAL HEIGHT — ensure all cards in a row align
+   ============================================================ */
+
+/* Overview card rows */
+#uebersicht .row.g-4 {
+    align-items: stretch;
+}
+
+#uebersicht .col-lg-3 {
+    display: flex;
+}
+
+.beratungsfeld-card-link {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+.beratungsfeld-card {
+    flex: 1 !important;
+}
+
+/* Service card rows */
+#marketing .row.g-4,
+#schulungen .row.g-4,
+#business .row.g-4,
+#digitalisierung .row.g-4 {
+    align-items: stretch;
+}
+
+#marketing .col-lg-3,
+#marketing .col-md-6,
+#schulungen .col-lg-3,
+#schulungen .col-md-6,
+#business .col-lg-3,
+#business .col-md-6,
+#digitalisierung .col-lg-3,
+#digitalisierung .col-md-6 {
+    display: flex;
+}
+
+/* ============================================================
+   §12  SECTION HEADING VISUAL IMPROVEMENTS
+   ============================================================ */
+
+/* Section heading sub-line (decorative) */
+#marketing .section-heading,
+#schulungen .section-heading,
+#business .section-heading,
+#digitalisierung .section-heading {
+    font-size: clamp(1.9rem, 4vw, 2.8rem) !important;
+    letter-spacing: -0.04em !important;
+}
+
+/* Overview section heading */
+#uebersicht .ibc-heading.section-heading {
+    font-size: clamp(1.9rem, 4vw, 2.7rem) !important;
+    letter-spacing: -0.04em !important;
+}
+
+/* Section category chip — make it feel more like a badge */
+.section-category-chip {
+    font-weight: 700 !important;
+    font-size: 0.73rem !important;
+    letter-spacing: 0.12em !important;
+}
+
+/* ============================================================
+   §13  MOBILE FINAL TWEAKS
+   ============================================================ */
+
+@media (max-width: 767px) {
+    /* On mobile, overview cards: 2 columns */
+    #uebersicht .col-lg-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    /* Service sections: 1 column on small mobile */
+    #marketing .col-lg-3,
+    #schulungen .col-lg-3,
+    #business .col-lg-3,
+    #digitalisierung .col-lg-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #uebersicht .col-lg-3,
+    #marketing .col-lg-3,
+    #schulungen .col-lg-3,
+    #business .col-lg-3,
+    #digitalisierung .col-lg-3 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* On very small screens, single column cards */
+    #uebersicht .col-md-6,
+    #marketing .col-md-6,
+    #schulungen .col-md-6,
+    #business .col-md-6,
+    #digitalisierung .col-md-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 }
