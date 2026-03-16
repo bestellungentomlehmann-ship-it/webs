@@ -229,7 +229,7 @@ body.homepage .navbar.scrolled .nav-link {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* flex-start + margin:auto on list centres items when there's room and allows scroll when not */
-    padding: 5rem 1.75rem calc(env(safe-area-inset-bottom, 0px) + 7rem); /* env() returns px; calc() handles mixed rem+px */
+    padding: 5rem 1.75rem 1.75rem; /* bottom padding handled by close-btn margin */
     /* Allow the nav list to scroll on very small phones where all items can't fit */
     overflow-y: auto;
     overflow-x: hidden; /* No horizontal scroll inside the overlay */
@@ -428,12 +428,10 @@ body.homepage .navbar.scrolled .nav-link {
     color: #fff !important;
 }
 
-/* Close button – fixed at the bottom for thumb reach */
+/* Close button – placed last in the overlay flow so it never covers nav links */
 .mobile-nav-close-btn {
-    position: fixed;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 36px);
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -448,11 +446,13 @@ body.homepage .navbar.scrolled .nav-link {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+    flex-shrink: 0;
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
         transform 0.2s ease;
-    /* Ensure close button is always reachable */
     z-index: 10002;
 }
 
@@ -460,7 +460,7 @@ body.homepage .navbar.scrolled .nav-link {
 .mobile-nav-close-btn:focus-visible {
     background: rgba(255, 255, 255, 0.22);
     border-color: rgba(255, 255, 255, 0.60);
-    transform: translateX(-50%) scale(1.08);
+    transform: scale(1.08);
 }
 
 .mobile-nav-close-btn:focus-visible {
