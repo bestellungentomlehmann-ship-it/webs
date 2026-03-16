@@ -2451,6 +2451,11 @@
         "en": "Teaching Areas:",
         "fr": "Domaines d'enseignement :"
     },
+    "network-curators-role-label": {
+        "de": "Kuratorium",
+        "en": "Advisory Board",
+        "fr": "Conseil consultatif"
+    },
     "contact-form-name-error": {
         "de": "Bitte geben Sie Ihren Namen ein",
         "en": "Please enter your name",
