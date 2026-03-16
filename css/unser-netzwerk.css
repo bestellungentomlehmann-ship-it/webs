@@ -688,25 +688,24 @@ body:not(.homepage) main {
 }
 
 /* ── §5  KURATORIUM SECTION ────────────────────────────── */
-.kuratorium-mitglied {
+/* ── Kuratorium: neue Karten-Grid-Ansicht mit rechteckigen Bildern ── */
+.kuratorium-card {
     background: #ffffff;
-    border-radius: 24px;
-    padding: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 2rem;
-    box-shadow:
-        0 4px 24px rgba(32, 35, 74, 0.07),
-        0 1px 6px rgba(32, 35, 74, 0.04);
-    border: 1px solid rgba(32, 35, 74, 0.06);
-    position: relative;
+    border-radius: 20px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow:
+        0 4px 24px rgba(32, 35, 74, 0.08),
+        0 1px 6px rgba(32, 35, 74, 0.04);
+    border: 1px solid rgba(32, 35, 74, 0.07);
+    position: relative;
     transition:
         transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
         box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.kuratorium-mitglied:last-child {
-    margin-bottom: 0;
-}
-.kuratorium-mitglied::before {
+.kuratorium-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -714,99 +713,98 @@ body:not(.homepage) main {
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, var(--ibc-blue), var(--ibc-green));
-    transform-origin: left;
+    z-index: 2;
 }
-.kuratorium-mitglied:nth-child(even)::before {
+.kuratorium-card:nth-child(even)::before {
     background: linear-gradient(90deg, var(--ibc-green), var(--ibc-blue));
 }
-.kuratorium-mitglied:hover {
-    transform: translateY(-4px);
+.kuratorium-card:hover {
+    transform: translateY(-6px);
     box-shadow:
-        0 20px 56px rgba(32, 35, 74, 0.11),
-        0 6px 20px rgba(32, 35, 74, 0.07);
+        0 24px 60px rgba(32, 35, 74, 0.14),
+        0 8px 24px rgba(32, 35, 74, 0.08);
 }
-.kuratorium-img {
+/* Rechteckiger Bild-Bereich oben in der Karte */
+.kuratorium-card-img-wrapper {
     width: 100%;
-    max-width: 220px;
-    height: 220px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(64, 84, 178, 0.08) 0%, rgba(109, 151, 68, 0.08) 100%);
+    position: relative;
+}
+.kuratorium-card-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow:
-        0 16px 40px rgba(32, 35, 74, 0.14),
-        0 4px 12px rgba(32, 35, 74, 0.08),
-        0 0 0 4px rgba(255, 255, 255, 0.9),
-        0 0 0 6px rgba(109, 151, 68, 0.2);
-    transition:
-        transform 0.45s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)),
-        box-shadow 0.45s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+    object-position: center top;
     display: block;
-    margin: 0 auto;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.kuratorium-mitglied:hover .kuratorium-img {
-    transform: scale(1.04);
-    box-shadow:
-        0 28px 60px rgba(32, 35, 74, 0.18),
-        0 8px 20px rgba(32, 35, 74, 0.1),
-        0 0 0 4px rgba(255, 255, 255, 0.9),
-        0 0 0 6px rgba(109, 151, 68, 0.35);
+.kuratorium-card:hover .kuratorium-card-img {
+    transform: scale(1.05);
 }
-.kuratorium-content {
-    padding: 0.5rem 0;
+/* Inhalt-Bereich der Karte */
+.kuratorium-card-body {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
-.kuratorium-content h3 {
+.kuratorium-card-body h3 {
     color: var(--ibc-blue);
-    font-size: clamp(1.3rem, 3vw, 1.65rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     font-weight: 700;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.01em;
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 0.85rem;
 }
-.kuratorium-content h3::after {
+.kuratorium-card-body h3::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 48px;
+    width: 40px;
     height: 3px;
     background: linear-gradient(90deg, var(--ibc-green), var(--ibc-blue));
     border-radius: 2px;
 }
-.kuratorium-content .blockquote {
+.kuratorium-card-body .blockquote {
     font-style: italic;
     color: var(--ibc-text-secondary);
     border-left: 4px solid var(--ibc-green);
-    padding: 1.25rem 1.5rem 1.25rem 2rem;
-    font-size: 0.97rem;
-    line-height: 1.85;
+    padding: 1rem 1.25rem 1rem 1.75rem;
+    font-size: 0.92rem;
+    line-height: 1.8;
     background: linear-gradient(135deg, rgba(109, 151, 68, 0.05) 0%, rgba(64, 84, 178, 0.03) 100%);
-    border-radius: 0 16px 16px 0;
-    margin-bottom: 1.25rem;
+    border-radius: 0 14px 14px 0;
+    margin-bottom: 1rem;
     position: relative;
+    flex: 1;
 }
-.kuratorium-content .blockquote::before {
+.kuratorium-card-body .blockquote::before {
     content: '\201C';
     position: absolute;
-    top: 0rem;
-    left: 0.75rem;
-    font-size: 2.5rem;
-    color: rgba(109, 151, 68, 0.25);
+    top: 0;
+    left: 0.6rem;
+    font-size: 2.2rem;
+    color: rgba(109, 151, 68, 0.22);
     font-style: normal;
     font-family: Georgia, serif;
     line-height: 1.2;
     pointer-events: none;
 }
-.kuratorium-content .lehrgebiete {
-    font-size: 0.9rem;
+.kuratorium-card-body .lehrgebiete {
+    font-size: 0.88rem;
     color: var(--ibc-text-secondary);
     margin-bottom: 0;
-    line-height: 1.7;
+    line-height: 1.65;
     background: rgba(32, 35, 74, 0.03);
-    border-radius: 12px;
-    padding: 0.85rem 1.1rem;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
     border-left: 3px solid rgba(64, 84, 178, 0.25);
 }
-.kuratorium-content .lehrgebiete strong {
+.kuratorium-card-body .lehrgebiete strong {
     color: var(--ibc-dark);
     font-weight: 600;
 }
@@ -860,17 +858,10 @@ body:not(.homepage) main {
 
 /* ── §9  RESPONSIVE: TABLET (≤991px) ───────────────────── */
 @media (max-width: 991px) {
-    .kuratorium-mitglied .col-lg-4 {
-        margin-bottom: 2rem;
+    .kuratorium-card-body h3 {
         text-align: center;
     }
-    .kuratorium-mitglied .kuratorium-content {
-        text-align: left;
-    }
-    .kuratorium-content .blockquote {
-        text-align: left;
-    }
-    .kuratorium-content h3::after {
+    .kuratorium-card-body h3::after {
         left: 50%;
         transform: translateX(-50%);
     }
@@ -947,23 +938,17 @@ body:not(.homepage) main {
     }
 
     /* Kuratorium – simplified card on mobile */
-    .kuratorium-mitglied {
-        padding: 2rem 1.5rem;
-        border-radius: 20px;
+    .kuratorium-card-body {
+        padding: 1.5rem 1.25rem;
     }
-    .kuratorium-img {
-        max-width: 160px;
-        height: 160px;
-        margin-bottom: 1.5rem;
+    .kuratorium-card-body .blockquote {
+        font-size: 0.88rem;
+        padding: 0.9rem 1.1rem 0.9rem 1.6rem;
     }
-    .kuratorium-content .blockquote {
-        font-size: 0.9rem;
-        padding: 1rem 1.25rem 1rem 1.75rem;
-    }
-    .kuratorium-content h3 {
+    .kuratorium-card-body h3 {
         text-align: center;
     }
-    .kuratorium-content h3::after {
+    .kuratorium-card-body h3::after {
         left: 50%;
         transform: translateX(-50%);
     }
@@ -1025,9 +1010,8 @@ body:not(.homepage) main {
 
 /* ── §11  RESPONSIVE: SMALL MOBILE (≤480px) ────────────── */
 @media (max-width: 480px) {
-    .kuratorium-img {
-        max-width: 130px;
-        height: 130px;
+    .kuratorium-card-body {
+        padding: 1.25rem 1rem;
     }
     .page-hero-section h1 {
         font-size: clamp(2.2rem, 10vw, 2.8rem);
@@ -1040,9 +1024,6 @@ body:not(.homepage) main {
     .partner-card {
         border-radius: 16px;
         padding: 1.5rem;
-    }
-    .kuratorium-mitglied {
-        padding: 1.75rem 1.25rem;
     }
     .hero-eyebrow {
         font-size: 0.78rem;
@@ -1071,18 +1052,13 @@ body:not(.homepage) main {
         transform: none;
         filter: grayscale(15%);
     }
-    .kuratorium-mitglied:hover .kuratorium-img {
+    .kuratorium-card:hover .kuratorium-card-img {
         transform: none;
-        box-shadow:
-            0 16px 40px rgba(32, 35, 74, 0.14),
-            0 4px 12px rgba(32, 35, 74, 0.08),
-            0 0 0 4px rgba(255, 255, 255, 0.9),
-            0 0 0 6px rgba(109, 151, 68, 0.2);
     }
-    .kuratorium-mitglied:hover {
+    .kuratorium-card:hover {
         transform: none;
         box-shadow:
-            0 4px 24px rgba(32, 35, 74, 0.07),
+            0 4px 24px rgba(32, 35, 74, 0.08),
             0 1px 6px rgba(32, 35, 74, 0.04);
     }
     .alumni-counter-card:hover {
@@ -1135,8 +1111,8 @@ body:not(.homepage) main {
     .alumni-counter-card::after,
     .ethereal-button,
     .ethereal-button::before,
-    .kuratorium-img,
-    .kuratorium-mitglied,
+    .kuratorium-card,
+    .kuratorium-card-img,
     .read-more-btn {
         transition: none;
         animation: none;
@@ -1145,10 +1121,10 @@ body:not(.homepage) main {
     .ethereal-button:hover,
     .alumni-counter-card:hover,
     .read-more-btn:hover,
-    .kuratorium-mitglied:hover {
+    .kuratorium-card:hover {
         transform: none;
     }
-    .kuratorium-mitglied:hover .kuratorium-img {
+    .kuratorium-card:hover .kuratorium-card-img {
         transform: none;
     }
 }
@@ -1158,15 +1134,8 @@ body:not(.homepage) main {
     .partner-card:hover {
         transform: translateY(-12px);
     }
-    .kuratorium-img {
-        max-width: 240px;
-        height: 240px;
-    }
     .alumni-counter-card {
         padding: 4rem 5.5rem;
-    }
-    .kuratorium-mitglied {
-        padding: 4.5rem;
     }
 }
 
@@ -1193,13 +1162,6 @@ body:not(.homepage) main {
 @media (min-width: 768px) and (max-width: 1199px) {
     .alumni-counter-card {
         border-radius: 24px;
-    }
-    .kuratorium-mitglied {
-        padding: 2.75rem 2.25rem;
-    }
-    .kuratorium-img {
-        max-width: 180px;
-        height: 180px;
     }
     .page-hero-section {
         padding: 6rem 0 4.5rem;
