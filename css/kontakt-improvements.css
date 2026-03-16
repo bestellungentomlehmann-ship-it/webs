@@ -102,24 +102,69 @@ section.py-5:has(#contact-form) .row.g-5 {
 section.py-5:has(#contact-form) h2.ibc-heading {
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 700;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     letter-spacing: -0.03em;
+}
+
+/* Section background – vivid canvas for the glass form card */
+section:has(#contact-form) {
+    background: linear-gradient(135deg,
+        #e8eeff 0%,
+        #edf7e5 40%,
+        #f0f4ff 70%,
+        #e5f5f0 100%) !important;
+    position: relative;
+}
+
+/* Subtle decorative background shapes */
+section:has(#contact-form)::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(109,151,68,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+    top: -80px;
+    right: 5%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+section:has(#contact-form)::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(32,35,74,0.07) 0%, transparent 65%);
+    border-radius: 50%;
+    bottom: -60px;
+    left: 3%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+section:has(#contact-form) > .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ─────────────────────────────────────────────────────────────
    §4  CONTACT FORM CARD (.contact-card)
    ───────────────────────────────────────────────────────────── */
 .contact-card {
-    background: rgba(255, 255, 255, 0.97) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(22px) saturate(170%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(170%) !important;
     border-radius: var(--kontakt-card-radius) !important;
-    padding: clamp(1.5rem, 4vw, 2.5rem) !important;
-    box-shadow: var(--kontakt-card-shadow) !important;
-    border: 1px solid rgba(109,151,68,0.12) !important;
+    padding: clamp(1.75rem, 4vw, 2.75rem) !important;
+    box-shadow:
+        0 4px 16px rgba(32, 35, 74, 0.06),
+        0 24px 64px rgba(32, 35, 74, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+    border: 1px solid rgba(109,151,68,0.18) !important;
     position: relative;
     overflow: hidden;
-    transition: box-shadow 0.4s ease;
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
 }
 
 /* Top accent bar */
@@ -129,13 +174,25 @@ section.py-5:has(#contact-form) h2.ibc-heading {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--kontakt-green), var(--kontakt-blue));
+    height: 5px;
+    background: linear-gradient(90deg, var(--kontakt-green), var(--kontakt-blue), var(--kontakt-green));
+    background-size: 200% 100%;
     border-radius: var(--kontakt-card-radius) var(--kontakt-card-radius) 0 0;
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .contact-card:hover {
-    box-shadow: var(--kontakt-card-shadow-hover) !important;
+    box-shadow:
+        0 8px 24px rgba(32, 35, 74, 0.09),
+        0 40px 80px rgba(32, 35, 74, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    transform: translateY(-3px);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -150,26 +207,28 @@ section.py-5:has(#contact-form) h2.ibc-heading {
     border: 1.5px solid #dde3ec;
     padding: 0.875rem 1rem;
     font-size: 1rem;
-    background: #fff;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    background: rgba(255, 255, 255, 0.85);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, background 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .contact-card .form-control:hover {
-    border-color: rgba(109,151,68,0.5);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-color: rgba(109,151,68,0.55);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(109,151,68,0.10);
 }
 
 .contact-card .form-control:focus {
     border-color: var(--kontakt-green);
-    box-shadow: 0 0 0 3px rgba(109,151,68,0.18), 0 2px 8px rgba(0,0,0,0.05);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(109,151,68,0.18), 0 3px 12px rgba(109,151,68,0.12);
     outline: none;
     transform: translateY(-1px);
 }
 
 /* Textarea */
 .contact-card textarea.form-control {
-    min-height: 140px;
+    min-height: 150px;
     resize: vertical;
 }
 
@@ -837,4 +896,17 @@ section.py-5:has(#contact-form) h2.ibc-heading {
     .js-reveal:not(.is-visible)[data-animation-delay] {
         transition-delay: 0s !important;
     }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   §21  HERO HEADING – prevent word-level animation conflict
+   The hero h1 already has a CSS fadeInUp animation. Disable
+   the per-word stripe-reveal so text is visible once fadeInUp
+   completes, avoiding a permanent invisible state.
+   ───────────────────────────────────────────────────────────── */
+.page-hero-section .ibc-heading .word,
+.page-hero-section .ibc-heading .word-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
 }
