@@ -2791,44 +2791,186 @@
 }
 /* ─────────────────────────────────────────────────────────────────── */
 
-/* ── §N  VISION BOX ENHANCEMENT ────────────────────────────────── */
-/* vision-box__label: styled badge above the vision text */
-.vision-box__label {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ibc-green-text, #355B2C);
-    background: linear-gradient(135deg, rgba(93,167,57,0.12), rgba(64,84,178,0.10));
-    border: 1px solid rgba(93,167,57,0.30);
-    padding: 0.3rem 1rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
+/* ── §N  VISION BOX REDESIGN ────────────────────────────────────── */
+/*
+ * Complete visual overhaul: rich dark-gradient background with brand colours,
+ * white text, glowing icon, decorative quote mark, and subtle radial glow.
+ * These rules cascade after all earlier .vision-box blocks and win.
+ *
+ * Local design tokens for semi-transparent brand colours used in this section:
+ */
+.vision-box {
+    --vision-glow-green:      rgba(93, 167, 57, 0.20);
+    --vision-glow-blue:       rgba(64, 84, 178, 0.18);
+    --vision-icon-glow:       rgba(93, 167, 57, 0.50);
+    --vision-icon-ring:       rgba(93, 167, 57, 0.15);
+    --vision-icon-glow-hover: rgba(93, 167, 57, 0.65);
+    --vision-icon-ring-hover: rgba(93, 167, 57, 0.20);
+    --vision-shadow-blue:     rgba(32, 35, 74, 0.40);
+    --vision-shadow-green:    rgba(93, 167, 57, 0.18);
+
+    /* Rich brand-colour gradient background */
+    background: linear-gradient(135deg, var(--ibc-blue, #20234A) 0%, #2b3170 50%, #1c3d28 100%);
+    border: none;
+    border-radius: 24px;
+    padding: 3.5rem 4rem;
+    box-shadow:
+        0 24px 64px var(--vision-shadow-blue),
+        0 8px 24px var(--vision-shadow-green),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-top: 3rem;
+    /* Override earlier background-clip so gradient shows properly */
+    background-clip: border-box;
 }
 
-/* vision-box__text: main vision statement */
+/* Radial glow in top-left corner (green accent) */
+.vision-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse 55% 60% at 10% 20%, var(--vision-glow-green) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 90% 85%, var(--vision-glow-blue) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    /* override earlier animation */
+    animation: none;
+    opacity: 1;
+}
+
+/* Large decorative background quote mark */
+.vision-box::after {
+    content: '\201C';
+    position: absolute;
+    top: -0.3rem;
+    left: 1.5rem;
+    font-size: clamp(7rem, 14vw, 11rem);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+    z-index: 0;
+    /* override earlier transform/opacity animation */
+    transform: none;
+    opacity: 1;
+    transition: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .vision-box:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow:
+            0 32px 80px rgba(32, 35, 74, 0.50),
+            0 12px 32px rgba(93, 167, 57, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    }
+}
+
+/* ── Icon ──────────────────────────────────────────────────────── */
+.vision-box .vision-box__icon {
+    width: 68px;
+    height: 68px;
+    background: linear-gradient(135deg, var(--ibc-green, #5DA739), rgba(93, 167, 57, 0.65));
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.7rem;
+    color: #fff;
+    box-shadow:
+        0 8px 24px var(--vision-icon-glow),
+        0 0 0 6px var(--vision-icon-ring);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    .vision-box:hover .vision-box__icon {
+        transform: rotate(-10deg) scale(1.15);
+        box-shadow:
+            0 12px 32px var(--vision-icon-glow-hover),
+            0 0 0 8px var(--vision-icon-ring-hover);
+    }
+}
+
+/* ── Label badge ───────────────────────────────────────────────── */
+.vision-box__label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.3rem 1.1rem;
+    border-radius: 50px;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* ── Vision statement text ─────────────────────────────────────── */
 .vision-box__text {
-    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-    line-height: 1.75;
+    font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+    line-height: 1.8;
     font-weight: 500;
-    color: var(--ibc-dark, #20234A);
+    color: rgba(255, 255, 255, 0.92);
     max-width: 820px;
     position: relative;
     z-index: 2;
 }
 
-/* Decorative opening quote mark */
+/* Remove old inline quote-mark pseudo – the ::after on the box handles decoration */
 .vision-box__text::before {
-    content: '\201C';
-    font-size: 4rem;
-    line-height: 0;
-    vertical-align: -1.4rem;
-    color: rgba(93,167,57,0.22);
-    font-family: Georgia, serif;
-    margin-right: 0.15rem;
-    pointer-events: none;
+    content: none;
+}
+
+/* Keep .text-gradient legible on the dark background: brighter green tones */
+.vision-box .text-gradient {
+    --vision-highlight-start: #7ccc42;
+    --vision-highlight-end:   #a8d97a;
+    background: linear-gradient(90deg, var(--vision-highlight-start), var(--vision-highlight-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 700;
+}
+
+/* ── Responsive adjustments ────────────────────────────────────── */
+@media (max-width: 767px) {
+    .vision-box {
+        padding: 2.75rem 2.25rem;
+        border-radius: 20px;
+    }
+    .vision-box .vision-box__icon {
+        width: 58px;
+        height: 58px;
+        font-size: 1.4rem;
+    }
+    .vision-box__text {
+        font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+    }
+}
+@media (max-width: 575px) {
+    .vision-box {
+        padding: 2.25rem 1.5rem;
+        border-radius: 16px;
+    }
+    .vision-box::after {
+        font-size: 6rem;
+    }
 }
 
 /* ── §O  TEAM CARD TYPOGRAPHY & RESPONSIVE POLISH ───────────────── */
