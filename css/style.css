@@ -587,7 +587,7 @@ a:not(.btn):not(.nav-link):not(.footer-logo a):hover {
 }
 .infoabend-section .ibc-lead,
 .infoabend-section p.ibc-lead {
-    color: var(--ibc-text) !important;
+    color: rgba(255, 255, 255, 0.88) !important;
 }
 img {
   max-width: 100%;
