@@ -321,6 +321,7 @@
                 if (isAutoplayEnabled) startAnimation();
             }, { signal });
             carousel.addEventListener('keydown', handleKeydown, { signal });
+            attachTouchSwipe(carousel, signal);
             const intersectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -376,6 +377,35 @@
                 else stopAnimation();
                 break;
         }
+    }
+    function attachTouchSwipe(carousel, signal) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        const SWIPE_THRESHOLD = 50; // minimum px to register as a swipe
+        const AXIS_LOCK_RATIO = 1.5; // horizontal must dominate by this factor
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+            if (isAutoplayEnabled) stopAnimation();
+        }, { passive: true, signal });
+
+        carousel.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+
+            // Only treat as a horizontal swipe when the horizontal distance is
+            // large enough and clearly dominates the vertical movement.
+            if (absDx >= SWIPE_THRESHOLD && absDx > absDy * AXIS_LOCK_RATIO) {
+                resetAndStart();
+                goToSlide(currentSlideIndex + (dx < 0 ? 1 : -1));
+            } else if (isAutoplayEnabled) {
+                // No swipe – resume autoplay that was paused on touchstart
+                startAnimation();
+            }
+        }, { passive: true, signal });
     }
     window.ibcTestimonialsSlider = {
         init: initTestimonialsSlider,

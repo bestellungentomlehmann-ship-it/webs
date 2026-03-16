@@ -17,6 +17,10 @@
     const prefersReducedMotion =
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /** True on touch-primary devices (phones / tablets) */
+    const isTouchDevice =
+        window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
     /* ── Utility ──────────────────────────────────────────────────────────── */
 
     /** Linear interpolation */
@@ -33,7 +37,7 @@
      * small (max 12 px) so it reads as a subtle tactile affordance, not a bug.
      */
     function initMagneticEffect() {
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion || isTouchDevice) return;
 
         const ACTIVATION_RADIUS = 80;  // px – cursor must be within this box
         const MAX_SHIFT = 20;          // px – maximum translation in any direction
@@ -212,7 +216,7 @@
      * from the viewport centre.
      */
     function initParallax() {
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion || isTouchDevice) return;
 
         const PARALLAX_STRENGTH = 0.07; // fraction of offset from viewport centre
 
