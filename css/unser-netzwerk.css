@@ -331,7 +331,8 @@ body:not(.homepage) main {
 .alumni-netzwerk-section p,
 .alumni-netzwerk-section .lead,
 .alumni-netzwerk-section .ibc-lead {
-    color: rgba(255, 255, 255, 0.82);
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
     max-width: 600px;
     font-size: clamp(1rem, 2.2vw, 1.1rem);
     line-height: 1.8;
@@ -727,7 +728,7 @@ body:not(.homepage) main {
 /* Rechteckiger Bild-Bereich oben in der Karte */
 .kuratorium-card-img-wrapper {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(64, 84, 178, 0.08) 0%, rgba(109, 151, 68, 0.08) 100%);
     position: relative;
