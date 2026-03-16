@@ -22,7 +22,11 @@ html {
 
 .page-hero-section {
     padding: clamp(7rem, 12vw, 10rem) 0 clamp(5rem, 8vw, 7rem) 0;
-    background: linear-gradient(125deg, var(--ibc-blue), var(--ibc-green), var(--ibc-blue));
+    background: linear-gradient(135deg,
+        #111430 0%,
+        #20234A 30%,
+        #2c3d8a 60%,
+        #1a4a2e 100%);
     background-size: 400% 400%;
     color: var(--ibc-white);
     animation: animatedGradient 18s ease infinite;
@@ -47,16 +51,16 @@ html {
     animation: heroBlobFloat 14s ease-in-out infinite;
 }
 .hero-deco-orb-1 {
-    width: clamp(200px, 35vw, 480px);
-    height: clamp(200px, 35vw, 480px);
-    background: radial-gradient(circle, rgba(109,151,68,0.22) 0%, transparent 70%);
-    top: -15%;
-    right: -8%;
+    width: clamp(220px, 38vw, 540px);
+    height: clamp(220px, 38vw, 540px);
+    background: radial-gradient(circle, rgba(109,151,68,0.28) 0%, transparent 70%);
+    top: -18%;
+    right: -10%;
 }
 .hero-deco-orb-2 {
-    width: clamp(150px, 25vw, 360px);
-    height: clamp(150px, 25vw, 360px);
-    background: radial-gradient(circle, rgba(255,255,255,0.09) 0%, transparent 70%);
+    width: clamp(160px, 28vw, 400px);
+    height: clamp(160px, 28vw, 400px);
+    background: radial-gradient(circle, rgba(86,200,255,0.12) 0%, transparent 70%);
     bottom: 5%;
     left: -6%;
     animation-duration: 18s;
@@ -74,31 +78,37 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 0.4rem 1.1rem;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    padding: 0.45rem 1.25rem;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 1.25rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
     position: relative;
     z-index: 1;
     opacity: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.25);
     animation: heroFadeUp 0.8s 0.05s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+.hero-eyebrow i {
+    color: #a8e063;
 }
 
 /* Hero text improvements */
 .page-hero-section .ibc-heading,
 .page-hero-section h1 {
     color: #fff;
-    font-size: clamp(2.8rem, 7vw, 4.5rem);
-    text-shadow: 0 4px 20px rgba(0,0,0,0.45);
-    font-weight: 800;
+    font-size: clamp(3rem, 7.5vw, 5rem);
+    text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    font-weight: 900;
     letter-spacing: -0.05em;
+    line-height: 1.1;
     opacity: 0;
     transform: translateY(20px);
     animation: heroFadeUp 1s 0.2s forwards cubic-bezier(0.19, 1, 0.22, 1);
@@ -108,12 +118,14 @@ html {
 
 .page-hero-section .ibc-lead,
 .page-hero-section .lead {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: clamp(1.15rem, 3vw, 1.5rem);
-    max-width: 800px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    font-weight: 400;
+    line-height: 1.65;
     opacity: 0;
     transform: translateY(20px);
     animation: heroFadeUp 1s 0.4s forwards cubic-bezier(0.19, 1, 0.22, 1);
@@ -127,10 +139,11 @@ html {
 
 /* Hero text-gradient override on dark background */
 .page-hero-section .text-gradient {
-    background: linear-gradient(90deg, #a8e063, #7fc5f0);
+    background: linear-gradient(90deg, #a8e063 10%, #56c8ff 90%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(168,224,99,0.35));
 }
 
 /* Hero highlight-gradient — keep white */
@@ -149,7 +162,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 2.25rem;
     position: relative;
     z-index: 1;
     opacity: 0;
@@ -157,24 +170,25 @@ html {
 }
 
 .page-hero-section .hero-btn-secondary {
-    padding: 0.8rem 2rem;
+    padding: 0.85rem 2.1rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
-    color: rgba(255,255,255,0.92);
-    border: 2px solid rgba(255,255,255,0.45);
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    color: rgba(255,255,255,0.95);
+    border: 2px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     text-decoration: none;
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 .page-hero-section .hero-btn-secondary:hover,
 .page-hero-section .hero-btn-secondary:focus-visible {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.85);
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
     color: #fff;
 }
 
@@ -184,23 +198,29 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    margin-top: 2.5rem;
-    color: rgba(255,255,255,0.7);
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
+    margin-top: 2.75rem;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
+    font-weight: 600;
     animation: heroFadeUp 0.9s 0.75s both cubic-bezier(0.19,1,0.22,1);
     position: relative;
     z-index: 1;
     text-decoration: none;
+    transition: color 0.25s ease;
+}
+.hero-scroll-hint:hover {
+    color: rgba(255,255,255,1);
 }
 .hero-scroll-hint i {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     animation: chevronBounce 1.8s ease-in-out infinite;
+    color: #a8e063;
 }
 @keyframes chevronBounce {
     0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(6px); }
+    50%       { transform: translateY(8px); }
 }
 
 /* SVG wave divider — sits at the bottom of the hero */
