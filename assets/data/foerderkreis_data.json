@@ -1,0 +1,44 @@
+{
+  "_kommentar_datei": "Diese Datei enthält alle Förderkreismitglieder (Sponsoren) des IBC",
+  "_kommentar_verwendung": "Die Datei wird von foerderkreis-loader.js geladen und die Karten dynamisch generiert",
+  "_kommentar_erweiterung": "Neues Mitglied hinzufügen: Eintrag in 'foerderkreismitglieder' ergänzen und Übersetzungskeys in translations.json sowie Logo in media_config.json anlegen",
+
+  "foerderkreismitglieder": [
+    {
+      "id": "mlp",
+      "_kommentar": "MLP Finanzberatung SE",
+      "mediaId": "partner-mlp",
+      "alt": "Zum Unternehmensprofil von MLP Consulting",
+      "titleKey": "network-sponsors-mlp-title",
+      "descKey": "network-sponsors-mlp-desc",
+      "animationDelay": "100ms"
+    },
+    {
+      "id": "accenture",
+      "_kommentar": "Accenture Plc",
+      "mediaId": "partner-accenture",
+      "alt": "Zum Unternehmensprofil von Accenture",
+      "titleKey": "network-sponsors-accenture-title",
+      "descKey": "network-sponsors-accenture-desc",
+      "animationDelay": "200ms"
+    },
+    {
+      "id": "atos",
+      "_kommentar": "Atos Consulting",
+      "mediaId": "partner-atos",
+      "alt": "Zum Unternehmensprofil von Atos Consulting",
+      "titleKey": "network-sponsors-atos-title",
+      "descKey": "network-sponsors-atos-desc",
+      "animationDelay": "300ms"
+    },
+    {
+      "id": "plw",
+      "_kommentar": "purple line warrior Limited",
+      "mediaId": "partner-plw",
+      "alt": "Zum Unternehmensprofil von purple line warrior",
+      "titleKey": "network-sponsors-plw-title",
+      "descKey": "network-sponsors-plw-desc",
+      "animationDelay": "400ms"
+    }
+  ]
+}

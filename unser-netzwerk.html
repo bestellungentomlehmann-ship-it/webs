@@ -214,81 +214,8 @@
                     <p class="ibc-lead" data-i18n="network-sponsors-subtitle">Starke Partner, die unsere Vision teilen
                         und uns auf unserem Weg unterstützen.</p>
                 </div>
-                <ul class="row g-4 justify-content-center list-unstyled">
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="100ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img loading="lazy" data-media-id="partner-mlp" alt="Zum Unternehmensprofil von MLP Consulting" class="card-logo">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-mlp-desc">Die MLP Finanzberatung SE mit Sitz in
-                                        Wiesloch in Baden-Württemberg ist ein 1971
-                                        in Heidelberg gegründeter Finanzvertrieb. Die Tochtergesellschaft MLP Banking AG
-                                        verfügt über eine Banklizenz und ist als Kreditinstitut tätig.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="200ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img loading="lazy" data-media-id="partner-accenture" alt="Zum Unternehmensprofil von Accenture"
-                                            class="card-logo">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-accenture-desc">Die Accenture Plc mit Sitz im
-                                        irischen Dublin ist einer der weltweit größten
-                                        Managementberatungs-, Technologie- und Outsourcing-Dienstleister mit etwa
-                                        459.000 Mitarbeitern.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="300ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img data-media-id="partner-atos" alt="Zum Unternehmensprofil von Atos Consulting" class="card-logo" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-atos-desc">Die Atos SE ist ein börsennotierter
-                                        französischer IT-Dienstleister mit Hauptsitz
-                                        in Bezons bei Paris und München. Das Unternehmen hat weltweit ca. 120.000
-                                        Mitarbeiter. Atos Consulting ist eine Tochterunternehmen der Atos SE.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="400ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img data-media-id="partner-plw" alt="Zum Unternehmensprofil von purple line warrior" class="card-logo"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-plw-desc">purple line warrior Limited ist eine
-                                        innovative Nachhaltigkeitsagentur mit Sitz
-                                        in Hong Kong. Mit international aufgestelltem Team unterstützen sie Start-Ups,
-                                        Unternehmen und Projekte mit Konzepten im Sinne der Circular Economy.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
+                <ul id="foerderkreis-list" class="row g-4 justify-content-center list-unstyled" aria-label="Förderkreismitglieder">
+                    <!-- Einträge werden dynamisch von foerderkreis-loader.js aus foerderkreis_data.json geladen -->
                 </ul>
             </div>
         </section>
@@ -913,6 +840,7 @@
             });
         });
     </script>
+    <script src="js/foerderkreis-loader.js" defer></script>
     <script src="js/content-loader.js" defer></script>
     <script src="js/scroll-progress.js" defer></script>
     <script src="js/fade-in-animation.js" defer></script>
