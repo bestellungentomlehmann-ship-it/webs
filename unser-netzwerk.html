@@ -214,82 +214,7 @@
                     <p class="ibc-lead" data-i18n="network-sponsors-subtitle">Starke Partner, die unsere Vision teilen
                         und uns auf unserem Weg unterstützen.</p>
                 </div>
-                <ul class="row g-4 justify-content-center list-unstyled">
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="100ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img loading="lazy" data-media-id="partner-mlp" alt="Zum Unternehmensprofil von MLP Consulting" class="card-logo">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-mlp-desc">Die MLP Finanzberatung SE mit Sitz in
-                                        Wiesloch in Baden-Württemberg ist ein 1971
-                                        in Heidelberg gegründeter Finanzvertrieb. Die Tochtergesellschaft MLP Banking AG
-                                        verfügt über eine Banklizenz und ist als Kreditinstitut tätig.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="200ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img loading="lazy" data-media-id="partner-accenture" alt="Zum Unternehmensprofil von Accenture"
-                                            class="card-logo">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-accenture-desc">Die Accenture Plc mit Sitz im
-                                        irischen Dublin ist einer der weltweit größten
-                                        Managementberatungs-, Technologie- und Outsourcing-Dienstleister mit etwa
-                                        459.000 Mitarbeitern.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="300ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img data-media-id="partner-atos" alt="Zum Unternehmensprofil von Atos Consulting" class="card-logo" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-atos-desc">Die Atos SE ist ein börsennotierter
-                                        französischer IT-Dienstleister mit Hauptsitz
-                                        in Bezons bei Paris und München. Das Unternehmen hat weltweit ca. 120.000
-                                        Mitarbeiter. Atos Consulting ist eine Tochterunternehmen der Atos SE.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                    <li class="col-lg-3 col-md-6 mb-4 align-items-stretch fade-in-up" data-animation-delay="400ms">
-                        <button class="flip-card h-100" aria-pressed="false">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="icon-box">
-                                        <img data-media-id="partner-plw" alt="Zum Unternehmensprofil von purple line warrior" class="card-logo"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="flip-card-back" aria-hidden="true">
-                                    <p data-i18n="network-sponsors-plw-desc">purple line warrior Limited ist eine
-                                        innovative Nachhaltigkeitsagentur mit Sitz
-                                        in Hong Kong. Mit international aufgestelltem Team unterstützen sie Start-Ups,
-                                        Unternehmen und Projekte mit Konzepten im Sinne der Circular Economy.</p>
-                                    <div class="tap-hint" aria-hidden="true"><i class="fas fa-undo"></i> <span data-i18n="flip-back">Zurück</span></div>
-                                </div>
-                            </div>
-                        </button>
-                    </li>
-                </ul>
+                <ul id="foerderkreis-list" class="row g-4 justify-content-center list-unstyled" aria-live="polite" aria-label="Förderkreismitglieder"></ul>
             </div>
         </section>
         <section class="infoabend-section alumni-netzwerk-section fade-in-up" id="alumni" aria-labelledby="alumni-heading">
@@ -457,127 +382,10 @@
                     <p class="ibc-lead" data-i18n="network-curators-subtitle">Erfahrene Professoren, die uns mit Rat und
                         Tat zur Seite stehen und die Qualität unserer Arbeit sichern.</p>
                 </div>
-                <div class="kuratorium-mitglied fade-in-up">
-                    <div class="row g-lg-5 align-items-center">
-                        <div class="col-lg-4 text-center">
-                            <img data-media-id="testimonial-jacobi" alt="Portrait von Prof. Jörg Jacobi M.A."
-                                class="kuratorium-img" loading="lazy">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="kuratorium-content">
-                                <h3 data-i18n="network-curators-jacobi-name">Prof. Jörg Jacobi M.A.</h3>
-                                <blockquote class="blockquote" data-i18n="network-curators-jacobi-quote">
-                                    "Unternehmerisches Denken lernt nur, wer selbst
-                                    unternehmerisch tätig ist und Verantwortung für ein Unternehmen trägt. Das ist die
-                                    Idee des Institut für Business Consulting e.V., der studentischen
-                                    Unternehmensberatung an der Hochschule Furtwangen – kurz: IBC. Projekte, Praktika,
-                                    Planspiele, Jobs und viele anschauliche Praxisbeispiele während eines Studiums
-                                    können vermitteln, was es heißt, ein Unternehmen erfolgreich zu führen und Kunden
-                                    zufrieden zu stellen. Studierenden bietet die Mitarbeit im IBC darüber hinaus ein
-                                    interessantes und spannendes Erfahrungsfeld im Dienstleistungssektor und die Chance,
-                                    sehr früh bereits selbst Chef zu sein. Unternehmen kann die studentische
-                                    Unternehmensberatung an der Hochschule Furtwangen dagegen ein Partner sein, der
-                                    qualifizierte und preisgünstige Beratungsdienstleistungen anbietet – gerne auch mal
-                                    fernab „unternehmerischer Trampelpfade“."</blockquote>
-                                <p class="lehrgebiete mt-3"><strong
-                                        data-i18n="network-curators-subjects-label">Lehrgebiete:</strong> <span
-                                        data-i18n="network-curators-jacobi-subjects">CI- und
-                                        Kommunikationsstrategien, Unternehmenskommunikation, Messewesen, Public
-                                        Relations,
-                                        Usability Engineering mit Labor, Werbung und Mediaplanung.</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="kuratorium-mitglied fade-in-up">
-                    <div class="row g-lg-5 align-items-center flex-row-reverse">
-                        <div class="col-lg-4 text-center">
-                            <img data-media-id="testimonial-eisenbiegler" alt="Portrait von Prof. Dr. Dirk Eisenbiegler"
-                                class="kuratorium-img" loading="lazy">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="kuratorium-content">
-                                <h3 data-i18n="network-curators-eisenbiegler-name">Prof. Dr. Dirk Eisenbiegler</h3>
-                                <blockquote class="blockquote" data-i18n="network-curators-eisenbiegler-quote">"Bereits
-                                    während dem Studium relevante Praxiserfahrung
-                                    sammeln und Kontakte in die Wirtschaft knüpfen – dies bietet das Institut für
-                                    Business Consulting den Studierenden der Hochschule Furtwangen University. Das
-                                    Erlernte direkt anwenden und so Erfahrungen im unternehmerischen Umfeld machen sind
-                                    klare Mehrwerte des IBC für engagierte Studenten wie Unternehmen, die so Zugang zu
-                                    motivierten Kräften bekommen. Durch regelmäßige Schulungen und Workshops sowie die
-                                    strikte Einhaltung hoher Qualitätsstandards stellen diese Jungberater eine adäquate
-                                    Alternative zu herkömmlichen Unternehmensberatungen dar. So bietet das Institut für
-                                    Business Consulting innovative Lösungen auf dem aktuellen Stand der Wissenschaft zu
-                                    einer fairen Vergütung und die weitreichenden Erfahrungen von 15 erfolgreichen
-                                    Jahren im Projektgeschäft."</blockquote>
-                                <p class="lehrgebiete mt-3"><strong
-                                        data-i18n="network-curators-subjects-label">Lehrgebiete:</strong> <span
-                                        data-i18n="network-curators-eisenbiegler-subjects">Informatik, Verteilte
-                                        Anwendungen, Virtuelles Rechnermuseum, Semantik von Programmiersprachen,
-                                        Software
-                                        Entwicklung.</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="kuratorium-mitglied fade-in-up">
-                    <div class="row g-lg-5 align-items-center">
-                        <div class="col-lg-4 text-center">
-                            <img data-media-id="testimonial-siestrup" alt="Portrait von Prof. Dr. rer. pol. Guido Siestrup"
-                                class="kuratorium-img" loading="lazy">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="kuratorium-content">
-                                <h3 data-i18n="network-curators-siestrup-name">Prof. Dr. rer. pol. Guido Siestrup</h3>
-                                <blockquote class="blockquote" data-i18n="network-curators-siestrup-quote">"Ziel ist es,
-                                    unsere Studierenden mit exzellentem und
-                                    praktisch anwendbarem Methodenwissen auszustatten. Um einen nachhaltigen Lerneffekt
-                                    zu erreichen, ist es wichtig, dass dieses auch tatsächlich und möglichst früh im
-                                    realen Wirtschaftsleben angewandt wird. Neben unseren projektorientierten
-                                    Studienangeboten, bietet das IBC in Ergänzung eine hervorragende Plattform, um
-                                    Gelerntes praktisch anzuwenden. Durch die Teilnahme an Schulungen und Workshops
-                                    können Studierende überdies ihr Fachwissen weiter vertiefen. Zudem profitieren auch
-                                    die beauftragenden Unternehmen vom profunden Wissen sowie von den innovativen Ideen
-                                    der studentischen Unternehmensberater und Beraterinnen."</blockquote>
-                                <p class="lehrgebiete mt-3"><strong
-                                        data-i18n="network-curators-subjects-label">Lehrgebiete:</strong> <span
-                                        data-i18n="network-curators-siestrup-subjects">Geschäftsprozessdesign, BWL,
-                                        Logistik und Supply Chain Management.</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="kuratorium-mitglied fade-in-up">
-                    <div class="row g-lg-5 align-items-center flex-row-reverse">
-                        <div class="col-lg-4 text-center">
-                            <img data-media-id="testimonial-haug" alt="Portrait von Prof. Dr. Thomas Marx"
-                                class="kuratorium-img" loading="lazy">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="kuratorium-content">
-                                <h3 data-i18n="network-curators-marx-name">Prof. Dr. Thomas Marx</h3>
-                                <blockquote class="blockquote" data-i18n="network-curators-marx-quote">"Als Mitbegründer
-                                    vor über 25 Jahren freue ich mich
-                                    besonders darüber, dass die Idee so lange überlebt hat und sich das IBC von der
-                                    besten Seite zeigt. Das IBC ist, auch durch das Netzwerk mit dem BDSU, zu einer
-                                    Plattform geworden, mittels der Studierende Unternehmen, Menschen und Projekte
-                                    kennen lernen können. Insofern kann ich jedem Studierenden raten, hier mitzumachen,
-                                    um Erfahrungen im erfolgsabhängigen Projektgeschäft zu sammeln. Drei kritische
-                                    Erfolgskriterien, mit denen sich das gesamte WI-Studium beschäftigt. So come on,
-                                    liebe Studierende, wagen Sie Ihre ersten Karriereschritte, verarbeiten Sie Ihr
-                                    Wissen und kommen Sie zum IBC."</blockquote>
-                                <p class="lehrgebiete mt-3"><strong
-                                        data-i18n="network-curators-subjects-label">Lehrgebiete:</strong> <span
-                                        data-i18n="network-curators-marx-subjects">ERP Systeme, Makroökonomie,
-                                        Statistik, Rechnungswesen, Finanzierung & Investition, Projektmanagement,
-                                        Operations
-                                        Research.</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                <div id="kuratorium-grid" aria-live="polite" aria-label="Kuratoriumsmitglieder"></div>
             </div>
         </section>
+    
     </main>
             <footer class="footer-section fat-footer">
         <!-- ── Pre-Footer CTA ── -->
@@ -914,6 +722,7 @@
         });
     </script>
     <script src="js/content-loader.js" defer></script>
+    <script src="js/netzwerk-loader.js" defer></script>
     <script src="js/scroll-progress.js" defer></script>
     <script src="js/fade-in-animation.js" defer></script>
     <script src="js/icon-loader.js" defer></script>
