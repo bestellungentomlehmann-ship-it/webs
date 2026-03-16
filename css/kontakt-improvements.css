@@ -28,57 +28,134 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   §2  HERO SECTION
+   §2  HERO SECTION  —  .kontakt-hero
    ───────────────────────────────────────────────────────────── */
-.page-hero-section {
+
+/* Base hero section */
+.page-hero-section.kontakt-hero {
     position: relative;
     overflow: hidden;
     isolation: isolate;
     padding-top: var(--kontakt-hero-pad-top);
     padding-bottom: var(--kontakt-hero-pad-bottom);
+    /* Ensure minimum height so the heading always has space */
+    min-height: clamp(260px, 40vw, 380px);
+    display: flex;
+    align-items: center;
+}
+
+/* Inner container — never depends on JS to be visible */
+.kontakt-hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* CSS-only entrance (no JS needed) */
+    animation: kontaktHeroEnter 0.9s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes kontaktHeroEnter {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow badge */
+.kontakt-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(0.75rem, 1.6vw, 0.875rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: kontaktHeroEnter 0.7s 0.1s cubic-bezier(0.19,1,0.22,1) both;
+}
+
+/* Main heading */
+.kontakt-hero__title {
+    font-size: clamp(3.25rem, 8vw, 5.5rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.05 !important;
+    margin-bottom: 0.75rem !important;
+    animation: kontaktHeroEnter 0.8s 0.15s cubic-bezier(0.19,1,0.22,1) both !important;
+}
+
+/* Subtitle / lead */
+.kontakt-hero__subtitle {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem) !important;
+    margin-bottom: 2rem !important;
+    animation: kontaktHeroEnter 0.8s 0.25s cubic-bezier(0.19,1,0.22,1) both !important;
+}
+
+/* Quick-contact badges row */
+.kontakt-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    animation: kontaktHeroEnter 0.8s 0.35s cubic-bezier(0.19,1,0.22,1) both;
+}
+
+.kontakt-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    font-weight: 500;
+    color: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+a.kontakt-hero__badge:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.45);
+    color: #fff;
+    transform: translateY(-2px);
+    text-decoration: none;
 }
 
 /* Decorative floating circles behind hero content */
-.page-hero-section::before {
+.page-hero-section.kontakt-hero::before {
     content: '';
     position: absolute;
     width: clamp(240px, 35vw, 420px);
     height: clamp(240px, 35vw, 420px);
-    background: radial-gradient(circle, rgba(109,151,68,0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(109,151,68,0.20) 0%, transparent 70%);
     border-radius: 50%;
     top: -80px;
-    right: -100px;
+    right: -80px;
     pointer-events: none;
     animation: heroBlob1 10s ease-in-out infinite alternate;
     z-index: 0;
 }
 
-.page-hero-section::after {
+.page-hero-section.kontakt-hero::after {
     content: '';
     position: absolute;
     width: clamp(160px, 22vw, 280px);
     height: clamp(160px, 22vw, 280px);
-    background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
     border-radius: 50%;
     bottom: -40px;
     left: -60px;
     pointer-events: none;
     animation: heroBlob2 12s ease-in-out infinite alternate;
     z-index: 0;
-}
-
-/* Third small accent circle */
-.page-hero-section .container {
-    position: relative;
-    z-index: 1;
-}
-
-/* The hero container uses js-reveal for reveal timing, but the
-   children (h1, p) already have their own translateY animations.
-   Override the container to fade-only (no translate) to avoid
-   a compound-transform double-bounce effect. */
-.page-hero-section .js-reveal {
-    transform: none;
 }
 
 @keyframes heroBlob1 {
@@ -721,6 +798,12 @@ section:has(#contact-form) > .container {
     .info-item {
         padding: 1.25rem 1.5rem;
     }
+
+    .kontakt-hero__badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -777,6 +860,20 @@ section:has(#contact-form) > .container {
     .map-consent-icon {
         font-size: 2.25rem;
     }
+
+    /* Hero badge items stack on small screens */
+    .kontakt-hero__badge {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.875rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .kontakt-hero__eyebrow {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.75rem;
+    }
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -806,11 +903,21 @@ section:has(#contact-form) > .container {
    remove GPU-heavy decorative blob animations on mobile.
    ───────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-    /* Simplify hero blob animations */
-    .page-hero-section::before,
-    .page-hero-section::after {
+    /* Simplify hero blob animations on mobile */
+    .page-hero-section.kontakt-hero::before,
+    .page-hero-section.kontakt-hero::after {
         animation: none !important;
-        opacity: 0.5;
+        opacity: 0.4;
+    }
+
+    /* Faster hero entrance on mobile */
+    .kontakt-hero__inner,
+    .kontakt-hero__eyebrow,
+    .kontakt-hero__title,
+    .kontakt-hero__subtitle,
+    .kontakt-hero__badges {
+        animation-duration: 0.55s !important;
+        animation-delay: 0s !important;
     }
 
     /* Faster, simpler fade-in for JS-revealed elements */
@@ -824,9 +931,22 @@ section:has(#contact-form) > .container {
         transform: translateY(-3px) !important;
     }
 
+    /* Smaller hero min-height on phones */
+    .page-hero-section.kontakt-hero {
+        min-height: auto;
+    }
+
     /* Hide map load iframe height for very small screens */
     .map-placeholder {
         height: 280px;
+    }
+
+    /* Disable backdrop-filter on mobile for performance */
+    .kontakt-hero__eyebrow,
+    .kontakt-hero__badge {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(255,255,255,0.15);
     }
 }
 
@@ -834,9 +954,19 @@ section:has(#contact-form) > .container {
    §18 PREFERS-REDUCED-MOTION — disable all decorative animations
    ───────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-    .page-hero-section::before,
-    .page-hero-section::after {
+    .page-hero-section.kontakt-hero::before,
+    .page-hero-section.kontakt-hero::after {
         animation: none !important;
+    }
+
+    .kontakt-hero__inner,
+    .kontakt-hero__eyebrow,
+    .kontakt-hero__title,
+    .kontakt-hero__subtitle,
+    .kontakt-hero__badges {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .info-item,
@@ -914,14 +1044,22 @@ section:has(#contact-form) > .container {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   §21  HERO HEADING – prevent word-level animation conflict
-   The hero h1 already has a CSS fadeInUp animation. Disable
-   the per-word stripe-reveal so text is visible once fadeInUp
-   completes, avoiding a permanent invisible state.
+   §21  HERO HEADING – word-level animation & visibility fix
+   The hero h1 already has a CSS kontaktHeroEnter animation.
+   Disable per-word stripe-reveal to prevent invisible-text state.
    ───────────────────────────────────────────────────────────── */
 .page-hero-section .ibc-heading .word,
 .page-hero-section .ibc-heading .word-wrapper {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+}
+
+/* Override the js-reveal pattern for the hero inner container:
+   .kontakt-hero__inner uses CSS animation only, never opacity:0 */
+.kontakt-hero__inner.js-reveal,
+.kontakt-hero__inner.js-reveal:not(.is-visible):not(.is-in-view) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
