@@ -8,9 +8,9 @@
     {
       "_kommentar_bereich": "VORSTAND - Hier stehen die drei Vorstandsmitglieder des IBC",
       "_kommentar_person": "ERSTES VORSTANDSMITGLIED - Vorstandsvorsitzender",
-      "name": "Yannik Platzek",
+      "name": "Alexandra Dercho",
       "_kommentar_name": "Vollständiger Name der Person",
-      "image": "assets/img/team/Yannik-scaled.webp",
+      "image": "assets/img/team/Maskottchen.webp",
       "_kommentar_image": "Pfad zum Profilbild - Bild muss in assets/img/team/ Ordner existieren",
       "position": {
         "_kommentar": "Position in drei Sprachen - ALLE drei Sprachen müssen ausgefüllt sein!",
@@ -18,34 +18,34 @@
         "en": "Chairman",
         "fr": "Président du directoire"
       },
-      "email": "yannik.platzek@business-consulting.de",
+      "email": "alexandra.dercho@business-consulting.de",
       "_kommentar_email": "E-Mail-Adresse - wird auf der Website angezeigt und kann von Besuchern kopiert werden",
-      "linkedin": "https://www.linkedin.com/in/yannik-platzek-346b1a333/",
+      "linkedin": null,
       "_kommentar_linkedin": "LinkedIn-Profil URL - muss mit https:// beginnen. Wenn kein Profil: 'null' eintragen (ohne Anführungszeichen)"
     },
     {
       "_kommentar_person": "ZWEITES VORSTANDSMITGLIED - Stellvertretender Vorstandsvorsitzender",
-      "name": "David Meier",
-      "image": "assets/img/team/David-scaled.webp",
+      "name": "Alexander Boev",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
         "de": "Stellv. Vorstandsvorsitzender",
         "en": "Vice Chairman",
         "fr": "Vice-président du directoire"
       },
-      "email": "david.meier@business-consulting.de",
-      "linkedin": "https://de.linkedin.com/in/david-meier-14b653334"
+      "email": "alexander.boev@business-consulting.de",
+      "linkedin": null
     },
     {
       "_kommentar_person": "DRITTES VORSTANDSMITGLIED - Vorstand Finanzen & Recht",
-      "name": "Tobias Weigold",
-      "image": "assets/img/team/Tobi-scaled.webp",
+      "name": "Tom Lehmann",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
-        "de": "Vorstand Finanzen & Recht",
+        "de": "Vorstand für Finanz & Recht",
         "en": "Board Member Finance & Legal",
         "fr": "Directeur Finances et Droit"
       },
-      "email": "tobias.weigold@business-consulting.de",
-      "linkedin": "https://www.linkedin.com/in/tobias-weigold-16962836b/"
+      "email": "tom.lehmann@business-consulting.de",
+      "linkedin": null
     }
   ],
   
@@ -53,7 +53,7 @@
     {
       "_kommentar_bereich": "RESSORTS - Hier stehen die Ressortleiter (Leiter von Fachbereichen)",
       "_kommentar_ressort": "IT-Ressort",
-      "name": "Tom Kipp",
+      "name": "Richard Lämmle",
       "image": "assets/img/team/Maskottchen.webp",
       "_kommentar_bild": "Hier wird das Maskottchen als Platzhalterbild verwendet",
       "position": {
@@ -61,44 +61,43 @@
         "en": "Head of IT",
         "fr": "Responsable IT"
       },
-      "email": "tom.kipp@business-consulting.de",
-      "linkedin": "https://www.linkedin.com/in/tom-kipp-b01a5a361/"
+      "email": "richard.laemmle@business-consulting.de",
+      "linkedin": null
     },
     {
       "_kommentar_ressort": "Marketing-Ressort",
-      "name": "Tobias Eulert",
-      "image": "assets/img/team/Euli-scaled.webp",
+      "name": "Leander Hegmann",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
         "de": "Ressortleitung Marketing",
         "en": "Head of Marketing",
         "fr": "Responsable Marketing"
       },
-      "email": "tobias.eulert@business-consulting.de",
-      "linkedin": "https://de.linkedin.com/in/tobias-eulert-b16517297"
+      "email": "leander.hegmann@business-consulting.de",
+      "linkedin": null
     },
     {
       "_kommentar_ressort": "Human Resources-Ressort",
-      "name": "Alp-Tuna Karakaya",
-      "image": "assets/img/team/Alp-scaled.webp",
+      "name": "Dario Trombello",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
-        "de": "Ressortleitung Human Resources",
+        "de": "Ressortleitung HR",
         "en": "Head of Human Resources",
         "fr": "Responsable Ressources Humaines"
       },
-      "email": "alp.karakaya@business-consulting.de",
-      "linkedin": null,
-      "_kommentar_linkedin": "null bedeutet: Kein LinkedIn-Profil vorhanden - dann wird kein LinkedIn-Symbol angezeigt"
+      "email": "dario.trombello@business-consulting.de",
+      "linkedin": null
     },
     {
       "_kommentar_ressort": "Qualitätsmanagement-Ressort",
-      "name": "Jassir Hickel",
-      "image": "assets/img/team/Jassir-scaled.webp",
+      "name": "Julius Schilling",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
-        "de": "Ressortleitung Qualitätsmanagement",
+        "de": "Ressortleitung QM",
         "en": "Head of Quality Management",
         "fr": "Responsable Qualité"
       },
-      "email": "jassir.hickel@business-consulting.de",
+      "email": "julius.schilling@business-consulting.de",
       "linkedin": null
     },
     {
@@ -119,33 +118,33 @@
     {
       "_kommentar_bereich": "PLATTFORM - Hier stehen Manager für digitale Plattformen (SharePoint, Social Media)",
       "_kommentar_plattform": "SharePoint-Manager",
-      "name": "Amelie Hentschke",
-      "image": "assets/img/team/Amelie-scaled.webp",
+      "name": "Alp-Tuna Karakaya",
+      "image": "assets/img/team/Alp-scaled.webp",
       "position": {
         "de": "SharePoint-Manager",
         "en": "SharePoint Manager",
         "fr": "Gestionnaire SharePoint"
       },
-      "email": "amelie.hentschke@business-consulting.de",
+      "email": "alp.karakaya@business-consulting.de",
       "linkedin": null
     },
     {
       "_kommentar_plattform": "Social Media Managerin",
-      "name": "Jennifer Schlotterbeck",
-      "image": "assets/img/team/Jenni-scaled.webp",
+      "name": "Erza Tetova",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
-        "de": "Social Media Managerin",
+        "de": "Social-Media-Managerin",
         "en": "Social Media Manager",
         "fr": "Responsable Réseaux Sociaux"
       },
-      "email": "jennifer.schlotterbeck@business-consulting.de",
-      "linkedin": "https://de.linkedin.com/in/jennifer-schlotterbeck-72299131a"
+      "email": "erza.tetova@business-consulting.de",
+      "linkedin": null
     }
   ],
   
   "datenschutzbeauftragter": {
     "_kommentar_bereich": "DATENSCHUTZBEAUFTRAGTER - Dieser Eintrag wird auf der Datenschutzerklärungsseite angezeigt. Kein Vorstandsmitglied, sondern eine eigene Person.",
-    "name": "Yannik Platzek",
+    "name": "Kevin Hilzinger",
     "_kommentar_name": "Vollständiger Name des Datenschutzbeauftragten"
   },
 
