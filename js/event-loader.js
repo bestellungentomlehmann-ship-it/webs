@@ -53,7 +53,6 @@
             this.showEventSection();
             this.updateEventDate();
             this.updateEventLocation();
-            this.updateEventLink();
         }
         updateEventDate() {
             const dateElement = document.getElementById('dynamic-event-date');
@@ -70,11 +69,6 @@
                 ? this.eventConfig.location_en
                 : this.eventConfig.location_de;
             locationElement.textContent = locationText;
-        }
-        updateEventLink() {
-            const linkElement = document.getElementById('dynamic-event-link');
-            if (!linkElement) return;
-            linkElement.setAttribute('href', this.eventConfig.registrationLink);
         }
         hideEventSection() {
             const section = document.getElementById('infoabend-section');

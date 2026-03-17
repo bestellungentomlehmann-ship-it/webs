@@ -21,8 +21,5 @@
   "_kommentar_location_en": "Ort/Raum des Events auf Englisch",
   
   "location_fr": "Salle C.014",
-  "_kommentar_location_fr": "Ort/Raum des Events auf Französisch",
-  
-  "registrationLink": "https://forms.office.com/e/0hyfcKWkwL",
-  "_kommentar_registrationLink": "Link zum Anmeldeformular - muss mit https:// beginnen"
+  "_kommentar_location_fr": "Ort/Raum des Events auf Französisch"
 }

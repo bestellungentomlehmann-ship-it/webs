@@ -2,16 +2,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const nav = document.querySelector('.navbar');
-    const handleNavState = () => {
-        if (nav && window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else if (nav) {
-            nav.classList.remove('scrolled');
-        }
-    };
-    window.addEventListener('scroll', handleNavState);
-    handleNavState();
     if (!prefersReducedMotion) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
