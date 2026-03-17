@@ -46,18 +46,6 @@
       },
       "email": "tom.lehmann@business-consulting.de",
       "linkedin": null
-    },
-    {
-      "_kommentar_person": "VIERTES VORSTANDSMITGLIED - Datenschutzbeauftragter",
-      "name": "Kevin Hilzinger",
-      "image": "assets/img/team/Maskottchen.webp",
-      "position": {
-        "de": "Datenschutzbeauftragter",
-        "en": "Data Protection Officer",
-        "fr": "Délégué à la protection des données"
-      },
-      "email": "kevin.hilzinger@business-consulting.de",
-      "linkedin": null
     }
   ],
   
