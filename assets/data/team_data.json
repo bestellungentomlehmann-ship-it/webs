@@ -6,7 +6,7 @@
   
   "vorstand": [
     {
-      "_kommentar_bereich": "VORSTAND - Hier stehen die drei Vorstandsmitglieder des IBC",
+      "_kommentar_bereich": "VORSTAND - Hier stehen die Vorstandsmitglieder des IBC",
       "_kommentar_person": "ERSTES VORSTANDSMITGLIED - Vorstandsvorsitzender",
       "name": "Alexandra Dercho",
       "_kommentar_name": "Vollständiger Name der Person",
@@ -45,6 +45,18 @@
         "fr": "Directeur Finances et Droit"
       },
       "email": "tom.lehmann@business-consulting.de",
+      "linkedin": null
+    },
+    {
+      "_kommentar_person": "VIERTES VORSTANDSMITGLIED - Datenschutzbeauftragter",
+      "name": "Kevin Hilzinger",
+      "image": "assets/img/team/Maskottchen.webp",
+      "position": {
+        "de": "Datenschutzbeauftragter",
+        "en": "Data Protection Officer",
+        "fr": "Délégué à la protection des données"
+      },
+      "email": "kevin.hilzinger@business-consulting.de",
       "linkedin": null
     }
   ],
@@ -103,7 +115,7 @@
     {
       "_kommentar_ressort": "Akquise-Ressort",
       "name": "Kilian Hermann",
-      "image": "assets/img/team/Kilian-scaled.webp",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
         "de": "Ressortleitung Akquise",
         "en": "Head of Acquisition",
@@ -119,7 +131,7 @@
       "_kommentar_bereich": "PLATTFORM - Hier stehen Manager für digitale Plattformen (SharePoint, Social Media)",
       "_kommentar_plattform": "SharePoint-Manager",
       "name": "Alp-Tuna Karakaya",
-      "image": "assets/img/team/Alp-scaled.webp",
+      "image": "assets/img/team/Maskottchen.webp",
       "position": {
         "de": "SharePoint-Manager",
         "en": "SharePoint Manager",
