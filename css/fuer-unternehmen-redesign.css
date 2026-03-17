@@ -1017,6 +1017,7 @@ html {
 .page-hero-section .hero-cta-row .btn.ethereal-button {
     background: linear-gradient(135deg, var(--ibc-green-light, #7db356), #4054B2);
     box-shadow: 0 4px 12px rgba(125, 179, 86, 0.3);
+    color: #ffffff !important;
 }
 .page-hero-section .hero-cta-row .btn.ethereal-button:hover {
     box-shadow: 0 6px 20px rgba(125, 179, 86, 0.4), 0 0 12px rgba(125, 179, 86, 0.2);
