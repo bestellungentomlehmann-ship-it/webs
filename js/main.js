@@ -1192,21 +1192,24 @@ const initButtonAnimations = () => {
   const initCounterAnimation = () => {
     const counters = document.querySelectorAll('.counter');
     if (!counters.length) return;
-    const speed = 200;
+    const duration = 2000;
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
     const runCounter = (counter) => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText.replace(/\D/g, '');
-        const inc = target / speed;
-        if (count < target) {
-          counter.innerText = Math.ceil(count + inc);
-          setTimeout(updateCount, 20);
-        } else {
-          const suffix = counter.getAttribute('data-suffix') || '';
-          counter.innerText = target + suffix;
+      if (counter.classList.contains('counter-animated')) return;
+      counter.classList.add('counter-animated');
+      const target = +counter.getAttribute('data-target');
+      const suffix = counter.getAttribute('data-suffix') || '';
+      let startTime = null;
+      const updateCount = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const current = Math.round(easeOutCubic(progress) * target);
+        counter.innerText = current + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
         }
       };
-      updateCount();
+      requestAnimationFrame(updateCount);
     };
     counters.forEach(counter => {
       const observer = new IntersectionObserver((entries) => {
