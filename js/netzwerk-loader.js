@@ -98,7 +98,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════════════
-       §2  KURATORIUM – Rechteckige Karten-Grid
+       §2  KURATORIUM – Horizontale Einzelkarten (übereinander gestapelt)
        Hinweis: Bildpfade werden direkt aus netzwerk_data.json gelesen
        (gleicher Grund wie bei §1 oben).
     ══════════════════════════════════════════════════════════════════ */
@@ -112,8 +112,8 @@
             const safeImg = escapeHtml(member.image || '');
 
             return (
-                '<div class="col-lg-6 fade-in-up" data-animation-delay="' + delay + 'ms">' +
-                '  <article class="kuratorium-card">' +
+                '<div class="col-12 fade-in-up" data-animation-delay="' + delay + 'ms">' +
+                '  <article class="kuratorium-card kuratorium-card--horizontal">' +
                 '    <div class="kuratorium-card-img-wrapper">' +
                 '      <img loading="lazy" src="' + safeImg + '"' +
                 '           alt="' + safeAlt + '" class="kuratorium-card-img">' +
@@ -136,7 +136,7 @@
             );
         }).join('');
 
-        container.innerHTML = '<div class="row g-4">' + cards + '</div>';
+        container.innerHTML = '<div class="row g-5">' + cards + '</div>';
     }
 
     /* ── Scroll-Animationen für neu gerenderte Elemente ────────────── */
