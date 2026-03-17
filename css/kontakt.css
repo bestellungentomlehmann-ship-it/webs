@@ -3247,3 +3247,35 @@ select.form-control {
     fill: var(--ibc-green);
     color: var(--ibc-green);
 }
+
+/* Fix: Betreff (subject) select hover/focus animation.
+   Enforce custom appearance to remove browser-native hover overlay (the
+   triangular-arrow pattern), replace it with a clean SVG chevron, and
+   prevent the double-displacement of the floating label on focus. */
+.form-group-animated select.form-control,
+.form-group-animated select.form-control:hover,
+.form-group-animated select.form-control:focus {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236D9744' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.2em;
+}
+.form-group-animated select.form-control:focus {
+    transform: none;
+}
+.form-group-animated select.form-control:focus + label,
+.form-group-animated select.form-control:valid + label,
+.form-group-animated select.form-control:not([value=""]) + label {
+    transform: scale(0.88);
+    transform-origin: left center;
+    color: var(--ibc-green) !important;
+    font-size: 0.85rem !important;
+}
+.form-group-animated select.form-control:hover + label {
+    color: var(--ibc-green) !important;
+    transition: color 0.2s ease;
+}
