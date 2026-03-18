@@ -13,12 +13,6 @@
     "_kommentar_linkedin": "Link zur LinkedIn-Unternehmensseite des IBC"
   },
   
-  "forms": {
-    "_kommentar": "Links zu Online-Formularen",
-    "eventRegistration": "https://forms.office.com/e/0hyfcKWkwL",
-    "_kommentar_eventRegistration": "Link zum Event-Anmeldeformular (Microsoft Forms)"
-  },
-  
   "externalPages": {
     "_kommentar": "Links zu externen Seiten und Social Media Posts",
     "sharepoint": "https://ibcfurtwangen.sharepoint.com/SitePages/home.aspx",
