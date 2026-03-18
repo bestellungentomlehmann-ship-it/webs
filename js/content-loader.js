@@ -82,13 +82,6 @@
                 safeSetHref(el, url);
             });
         }
-        const formMappings = {
-            'link-event-registration': data.forms?.eventRegistration
-        };
-        for (const [id, url] of Object.entries(formMappings)) {
-            const el = document.getElementById(id);
-            safeSetHref(el, url);
-        }
         /**
          * External page mappings - supports both id and data-link-id attributes
          * 
