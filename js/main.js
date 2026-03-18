@@ -1179,10 +1179,11 @@ const initButtonAnimations = () => {
     });
     document.addEventListener('keydown', function(e) {
       if (e.key !== 'Enter' && e.key !== ' ') return;
-      const card = e.target.closest('.flip-card');
-      if (card) {
+      // Only handle when the flip-card button itself is focused (not a child element)
+      // so that child links and buttons retain their natural keyboard behaviour.
+      if (e.target.classList.contains('flip-card')) {
         e.preventDefault();
-        card.click();
+        e.target.click();
       }
     });
   };

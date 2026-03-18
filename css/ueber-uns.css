@@ -2225,7 +2225,6 @@
     .team-card-img-wrapper {
         width: 140px;
         min-width: 140px;
-        aspect-ratio: 2 / 3;
         border-radius: 16px 0 0 16px;
     }
     .team-card-body {
