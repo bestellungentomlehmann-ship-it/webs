@@ -2220,12 +2220,12 @@
         display: flex;
         flex-direction: row;
         border-radius: 16px;
-        min-height: 130px;
+        min-height: 160px;
     }
     .team-card-img-wrapper {
-        width: 110px;
-        min-width: 110px;
-        aspect-ratio: 1 / 1;
+        width: 140px;
+        min-width: 140px;
+        aspect-ratio: 2 / 3;
         border-radius: 16px 0 0 16px;
     }
     .team-card-body {
@@ -2257,7 +2257,7 @@
     .team-card-img-wrapper {
         width: 100%;
         min-width: unset;
-        aspect-ratio: 3 / 2;
+        aspect-ratio: 4 / 3;
         border-radius: 16px 16px 0 0;
     }
     .team-card-body { padding: 0.9rem 1rem 1.1rem; }
@@ -2501,10 +2501,12 @@
         flex-direction: row;
         align-items: stretch;
         border-radius: 16px;
-        min-height: 130px;
+        min-height: 160px;
         overflow: hidden;
     }
     .team-card-img-wrapper {
+        width: 140px;
+        min-width: 140px;
         aspect-ratio: auto;      /* override the square ratio */
         height: auto;
         border-radius: 0;        /* parent handles rounding */
@@ -3067,6 +3069,7 @@
 .page-hero-section .hero-cta-row .btn.ethereal-button {
     background: linear-gradient(135deg, var(--ibc-green-light, #7db356), #4054B2);
     box-shadow: 0 4px 12px rgba(125, 179, 86, 0.3);
+    color: #ffffff !important;
 }
 .page-hero-section .hero-cta-row .btn.ethereal-button:hover {
     box-shadow: 0 6px 20px rgba(125, 179, 86, 0.4), 0 0 12px rgba(125, 179, 86, 0.2);

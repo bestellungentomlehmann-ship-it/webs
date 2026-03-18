@@ -1144,8 +1144,6 @@ const initButtonAnimations = () => {
     });
   };
   const initFlipCards = () => {
-    const flipCards = document.querySelectorAll('.flip-card');
-    if (!flipCards.length) return;
     const desktopMediaQuery = window.matchMedia(`(min-width: ${config.flipCards.desktopBreakpoint}px)`);
     const toggleFlipCardAriaHidden = (card, isActive) => {
       const frontContent = card.querySelector('.flip-card-front');
@@ -1157,35 +1155,34 @@ const initButtonAnimations = () => {
         backContent.setAttribute('aria-hidden', isActive ? 'false' : 'true');
       }
     };
-    flipCards.forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (e.target.closest('a')) return;
-        this.classList.toggle('active');
-        if (!this.classList.contains('active')) {
-            const el = this;
-            // Use requestAnimationFrame so the class change is rendered before
-            // blur() is called — this makes focus removal reliable on iOS/Android
-            requestAnimationFrame(function() { el.blur(); });
-        }
-        const isActive = this.classList.contains('active');
-        this.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        toggleFlipCardAriaHidden(this, isActive);
-      });
-      card.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          this.click();
-        }
-      });
-    });
+    // Use event delegation so dynamically-inserted flip cards (e.g. loaded via
+    // netzwerk-loader.js) also receive click and keyboard handlers.
     document.addEventListener('click', function(e) {
-      if (desktopMediaQuery.matches && !e.target.closest('.flip-card')) {
+      const card = e.target.closest('.flip-card');
+      if (card) {
+        if (e.target.closest('a')) return;
+        card.classList.toggle('active');
+        if (!card.classList.contains('active')) {
+          requestAnimationFrame(function() { card.blur(); });
+        }
+        const isActive = card.classList.contains('active');
+        card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        toggleFlipCardAriaHidden(card, isActive);
+      } else if (desktopMediaQuery.matches) {
         const activeCards = document.querySelectorAll('.flip-card.active');
-        activeCards.forEach(card => {
-          card.classList.remove('active');
-          card.setAttribute('aria-pressed', 'false');
-          toggleFlipCardAriaHidden(card, false);
+        activeCards.forEach(function(c) {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+          toggleFlipCardAriaHidden(c, false);
         });
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.flip-card');
+      if (card) {
+        e.preventDefault();
+        card.click();
       }
     });
   };
