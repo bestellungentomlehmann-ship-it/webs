@@ -914,6 +914,56 @@
     border-radius: 28px;
     background-color: white;
 }
+/* Instagram link card – replaces blocked iframes */
+.instagram-link-card .instagram-reel-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    border-radius: 28px;
+    overflow: hidden;
+}
+.instagram-link-card .instagram-reel-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background: linear-gradient(145deg, #405DE6 0%, #5851DB 20%, #833AB4 40%, #C13584 60%, #E1306C 80%, #FD1D1D 100%);
+    border-radius: 28px;
+    text-align: center;
+    transition: filter 0.3s ease;
+}
+.instagram-link-card:hover .instagram-reel-preview {
+    filter: brightness(1.1);
+}
+.instagram-reel-icon {
+    font-size: 3.5rem;
+    color: #ffffff;
+    opacity: 0.95;
+}
+.instagram-reel-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    max-width: 200px;
+}
+.instagram-reel-cta {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem 1.25rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.instagram-link-card:hover .instagram-reel-cta {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
 @media (max-width: 1200px) {
     .instagram-feed-container { gap: 30px; }
 }
@@ -2708,18 +2758,19 @@
         flex-direction: column;
     }
     .ibc-testimonial-visual {
-        height: 300px !important;
-        min-height: 300px;
-        max-height: 300px;
+        height: 280px !important;
+        min-height: 280px;
+        max-height: 280px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         flex: none;
         background: linear-gradient(135deg, #f5f7fa 0%, #e8eaed 100%);
     }
     .ibc-testimonial-visual img {
-        object-fit: contain !important;
+        object-fit: cover !important;
+        object-position: center top !important;
         height: 100%;
         width: 100%;
-        max-height: 300px;
+        max-height: 280px;
         transform: none !important;
     }
     .ibc-testimonial-content {
@@ -2752,9 +2803,11 @@
         width: 100%;
     }
     .ibc-testimonial-visual img {
-        object-fit: contain !important;
+        object-fit: cover !important;
+        object-position: center top !important;
         max-height: 250px;
         width: 100%;
+        height: 100%;
         display: block;
     }
     .ibc-testimonial-content {

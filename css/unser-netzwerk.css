@@ -941,10 +941,10 @@ body:not(.homepage) main {
 
 /* ── §9  RESPONSIVE: TABLET (≤991px) ───────────────────── */
 @media (max-width: 991px) {
-    /* Horizontal card: smaller image on tablet */
+    /* Horizontal card: slightly larger image on tablet */
     .kuratorium-card--horizontal .kuratorium-card-img-wrapper {
-        width: 220px;
-        max-width: 220px;
+        width: 260px;
+        max-width: 260px;
     }
     .kuratorium-card-body h3 {
         text-align: center;
@@ -1037,7 +1037,7 @@ body:not(.homepage) main {
         width: 100%;
         min-width: unset;
         max-width: unset;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 3 / 2;
     }
     .kuratorium-card--horizontal .kuratorium-card-img-wrapper::after {
         background: linear-gradient(to top, rgba(12, 14, 39, 0.85) 0%, transparent 100%);
@@ -1053,6 +1053,9 @@ body:not(.homepage) main {
     .kuratorium-card-body .blockquote {
         font-size: 0.85rem;
         padding: 0.9rem 1rem 0.9rem 1.5rem;
+    }
+    .kuratorium-card-body .blockquote::before {
+        font-size: 2rem;
     }
     .kuratorium-card-body h3 {
         text-align: center;
@@ -1125,6 +1128,9 @@ body:not(.homepage) main {
 @media (max-width: 480px) {
     .kuratorium-card-body {
         padding: 1.25rem 1rem;
+    }
+    .kuratorium-card-body .blockquote::before {
+        font-size: 1.5rem;
     }
     .page-hero-section h1 {
         font-size: clamp(2.2rem, 10vw, 2.8rem);
