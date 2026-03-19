@@ -2136,9 +2136,13 @@ a.btn:focus:not(:focus-visible) {
 /* On very small screens, make cards slightly wider for better readability */
 @media (max-width: 400px) {
     .competencies-cards-grid.swipe-carousel .competency-card {
-        flex: 0 0 88% !important;
-        max-width: 88% !important;
-        width: 88% !important;
+        flex: 0 0 88vw !important;
+        max-width: 88vw !important;
+        width: 88vw !important;
+    }
+    /* Match trailing space to the wider cards: 12 vw = 100 vw − 88 vw */
+    .competencies-cards-grid.swipe-carousel .competency-card:last-child {
+        margin-right: 12vw !important;
     }
 }
 

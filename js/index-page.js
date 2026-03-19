@@ -340,6 +340,12 @@
             grid.classList.add('swipe-carousel');
             if (dotsContainer) dotsContainer.style.display = '';
             if (hintEl) hintEl.style.display = '';
+            // Immediately mark all cards as visible so the scroll-triggered
+            // reveal-fx animation (opacity:0 → 1, translateY, blur) does not
+            // play while the user is swiping horizontally. The animation is
+            // designed for vertical page-scroll reveals and looks wrong inside
+            // a horizontal swipe carousel.
+            getCards().forEach(card => card.classList.add('is-visible'));
             buildDots();
             buildCounter();
             updateActiveCard(0);
