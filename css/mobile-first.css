@@ -740,12 +740,14 @@ body.homepage .navbar.scrolled .nav-link {
         display: none; /* Chrome/Safari */
     }
 
-    /* Each card as a carousel slide – 80% wide with 15% peek of next card */
+    /* Each card as a carousel slide – 82 vw wide with peek of the next card.
+       Using vw units ensures the card is truly 82% of the viewport, not 82%
+       of the flex container's inner width (which is narrower due to padding). */
     .competencies-cards-grid.swipe-carousel .competency-card {
-        flex: 0 0 82% !important;
+        flex: 0 0 82vw !important;
         min-width: 0 !important;
-        max-width: 82% !important;
-        width: 82% !important;
+        max-width: 82vw !important;
+        width: 82vw !important;
         box-sizing: border-box !important;
         scroll-snap-align: start !important;
         overflow: hidden !important;
@@ -759,7 +761,10 @@ body.homepage .navbar.scrolled .nav-link {
                     box-shadow 0.4s ease !important;
     }
     .competencies-cards-grid.swipe-carousel .competency-card:last-child {
-        margin-right: 20px !important;
+        /* Trailing space = 18 vw (100 vw − 82 vw card) so the last card can
+           always scroll to its proper snap position, matching the 20 px
+           scroll-padding-left offset used for all other cards. */
+        margin-right: 18vw !important;
     }
 
     /* Active card (currently visible in the carousel) pops forward.
